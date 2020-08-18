@@ -1,48 +1,76 @@
-﻿using System;
+﻿using Promotion.Business;
+using Promotion.Interfaces;
+using Promotion.Models;
+using System;
+using System.Collections.Generic;
 
 namespace Promotion
 {
     class Program
     {
+        public static PromotionEngine promotionEngine = new PromotionEngine();
+
         static void Main(string[] args)
         {
+            DisplayUnitMenu();
             DisplayActivePromotion();
-            var item = DisplayUnitMenu();
-            var Quantity = DisplayQuantity();
-            if (item == 1)
+            int item, quantity, totalBill = 0;
+            List<Unit> lstSelectedItems = new List<Unit>();
+            string key = "Y";
+            while (key == "Y" || key == "y")
             {
-                var combos = Quantity / 3;
-                var singleItems = Quantity % 3;
-                var TotalCost = combos * 130 + singleItems * 50;
-                Console.WriteLine("Your total bill amount is {0}", TotalCost);
+                item = SelectMenu();
+                quantity = SelectQuantity();
+                totalBill = totalBill + promotionEngine.CalculateBill(item, quantity);
+                lstSelectedItems.Add(new Unit { UnitName = item.ToString(), Quantity = quantity });
+
+                Console.Write("Do you want to add more items (Y/N)? ");
+                key = Console.ReadLine();
             }
-            Console.WriteLine("You have selected {0} and quantity is {1}",item,Quantity);
+            if (totalBill > 0 && lstSelectedItems.Count > 0)
+            {
+                Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                Console.WriteLine("You have selected below items");
+                for (int i = 0; i < lstSelectedItems.Count; i++)
+                {
+                    Console.WriteLine("Item Number {0} : {1}", lstSelectedItems[i].UnitName, lstSelectedItems[i].Quantity);
+                }
+                Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                Console.WriteLine("Your total bill is {0}", totalBill);
+                Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            }
+            
         }
-        static public int DisplayQuantity()
+        static public int SelectQuantity()
         {
-            Console.WriteLine("Enter Quantity");
-            Console.WriteLine();
+            Console.Write("Enter Quantity :");
             var result = Console.ReadLine();
             return Convert.ToInt32(result);
         }
-        static public int DisplayUnitMenu()
+        static public void DisplayUnitMenu()
         {
-            Console.WriteLine("Select Unit");
-            Console.WriteLine();
-            Console.WriteLine("1. Unit A (Price - 50)");
-            Console.WriteLine("2. Unit B (Price - 30)");
-            Console.WriteLine("3. Unit C (Price - 20)");
-            Console.WriteLine("4. Unit D (Price - 15)");
-            
+            Console.WriteLine("************Menu Items************");
+            var menuList = promotionEngine.GetUnits();
+            for (int i = 0; i < menuList.Count; i++)
+            {
+                Console.WriteLine("{0}. {1} (Price - {2})", i+1, menuList[i].UnitName, menuList[i].Price);
+            }
+
+        }
+        static public int SelectMenu()
+        {
+            Console.Write("Select Unit :");
             var result = Console.ReadLine();
             return Convert.ToInt32(result);
         }
         static public void DisplayActivePromotion()
         {
-            Console.WriteLine("*******Active Promotions********");
-            Console.WriteLine();
-            Console.WriteLine("1. 3 Of Unit A's for 130");
-            Console.WriteLine("2. 2 Of Unit B's for 45");
+            Console.WriteLine("*********Active Promotions********");
+            var promotionList = promotionEngine.GetPromotions();
+            for (int i = 0; i < promotionList.Count; i++)
+            {
+                Console.WriteLine("{0}. {1}", i+1, promotionList[i].Description);
+            }
             Console.WriteLine("--------------------------------");
         }
     }

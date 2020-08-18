@@ -1,13 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Promotion.Business\Promotion.Business.csproj" />
     <ProjectReference Include="..\Promotion.Interfaces\Promotion.Interfaces.csproj" />
+    <ProjectReference Include="..\Promotion.Utilities\Promotion.Utilities.csproj" />
   </ItemGroup>
 
 </Project>
