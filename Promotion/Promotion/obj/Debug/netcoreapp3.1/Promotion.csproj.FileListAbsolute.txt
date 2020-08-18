@@ -1,0 +1,13 @@
+C:\Rahul\Study\PromotionEngine\RahulSonparote-10\PromotionEngine\Promotion\Promotion\bin\Debug\netcoreapp3.1\Promotion.exe
+C:\Rahul\Study\PromotionEngine\RahulSonparote-10\PromotionEngine\Promotion\Promotion\bin\Debug\netcoreapp3.1\Promotion.deps.json
+C:\Rahul\Study\PromotionEngine\RahulSonparote-10\PromotionEngine\Promotion\Promotion\bin\Debug\netcoreapp3.1\Promotion.runtimeconfig.json
+C:\Rahul\Study\PromotionEngine\RahulSonparote-10\PromotionEngine\Promotion\Promotion\bin\Debug\netcoreapp3.1\Promotion.runtimeconfig.dev.json
+C:\Rahul\Study\PromotionEngine\RahulSonparote-10\PromotionEngine\Promotion\Promotion\bin\Debug\netcoreapp3.1\Promotion.dll
+C:\Rahul\Study\PromotionEngine\RahulSonparote-10\PromotionEngine\Promotion\Promotion\bin\Debug\netcoreapp3.1\Promotion.pdb
+C:\Rahul\Study\PromotionEngine\RahulSonparote-10\PromotionEngine\Promotion\Promotion\obj\Debug\netcoreapp3.1\Promotion.csprojAssemblyReference.cache
+C:\Rahul\Study\PromotionEngine\RahulSonparote-10\PromotionEngine\Promotion\Promotion\obj\Debug\netcoreapp3.1\Promotion.AssemblyInfoInputs.cache
+C:\Rahul\Study\PromotionEngine\RahulSonparote-10\PromotionEngine\Promotion\Promotion\obj\Debug\netcoreapp3.1\Promotion.AssemblyInfo.cs
+C:\Rahul\Study\PromotionEngine\RahulSonparote-10\PromotionEngine\Promotion\Promotion\obj\Debug\netcoreapp3.1\Promotion.csproj.CoreCompileInputs.cache
+C:\Rahul\Study\PromotionEngine\RahulSonparote-10\PromotionEngine\Promotion\Promotion\obj\Debug\netcoreapp3.1\Promotion.dll
+C:\Rahul\Study\PromotionEngine\RahulSonparote-10\PromotionEngine\Promotion\Promotion\obj\Debug\netcoreapp3.1\Promotion.pdb
+C:\Rahul\Study\PromotionEngine\RahulSonparote-10\PromotionEngine\Promotion\Promotion\obj\Debug\netcoreapp3.1\Promotion.genruntimeconfig.cache

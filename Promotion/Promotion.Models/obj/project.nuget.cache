@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "xN/pX3DeK2f5XS/3pay3EyadnK3EZ4LD8ulIcFc7q4S9GZ502b83Ng9Pt8A+qNXXkoJYav9HjXa3Cj+H8WblyA==",
+  "success": true,
+  "projectFilePath": "C:\\Rahul\\Study\\PromotionEngine\\RahulSonparote-10\\PromotionEngine\\Promotion\\Promotion.Models\\Promotion.Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\P10479367\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\P10479367\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
