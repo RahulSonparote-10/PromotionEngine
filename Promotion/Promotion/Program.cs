@@ -3,6 +3,7 @@ using Promotion.Interfaces;
 using Promotion.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Promotion
 {
@@ -27,6 +28,7 @@ namespace Promotion
                 Console.Write("Do you want to add more items (Y/N)? ");
                 key = Console.ReadLine();
             }
+           
             if (totalBill > 0 && lstSelectedItems.Count > 0)
             {
                 Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -49,7 +51,7 @@ namespace Promotion
         }
         static public void DisplayUnitMenu()
         {
-            Console.WriteLine("************Menu Items************");
+            Console.WriteLine("==============Menu Items============");
             var menuList = promotionEngine.GetUnits();
             for (int i = 0; i < menuList.Count; i++)
             {
@@ -65,7 +67,7 @@ namespace Promotion
         }
         static public void DisplayActivePromotion()
         {
-            Console.WriteLine("*********Active Promotions********");
+            Console.WriteLine("============== Active Promotions ============== ");
             var promotionList = promotionEngine.GetPromotions();
             for (int i = 0; i < promotionList.Count; i++)
             {
