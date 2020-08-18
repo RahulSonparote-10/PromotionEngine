@@ -9,6 +9,13 @@ namespace Promotion
             DisplayActivePromotion();
             var item = DisplayUnitMenu();
             var Quantity = DisplayQuantity();
+            if (item == 1)
+            {
+                var combos = Quantity / 3;
+                var singleItems = Quantity % 3;
+                var TotalCost = combos * 130 + singleItems * 50;
+                Console.WriteLine("Your total bill amount is {0}", TotalCost);
+            }
             Console.WriteLine("You have selected {0} and quantity is {1}",item,Quantity);
         }
         static public int DisplayQuantity()
@@ -22,10 +29,10 @@ namespace Promotion
         {
             Console.WriteLine("Select Unit");
             Console.WriteLine();
-            Console.WriteLine("1. Unit A");
-            Console.WriteLine("2. Unit B");
-            Console.WriteLine("3. Unit C");
-            Console.WriteLine("4. Unit D");
+            Console.WriteLine("1. Unit A (Price - 50)");
+            Console.WriteLine("2. Unit B (Price - 30)");
+            Console.WriteLine("3. Unit C (Price - 20)");
+            Console.WriteLine("4. Unit D (Price - 15)");
             
             var result = Console.ReadLine();
             return Convert.ToInt32(result);
