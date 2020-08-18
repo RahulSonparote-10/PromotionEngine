@@ -10,7 +10,7 @@ namespace Promotion
     class Program
     {
         public static PromotionEngine promotionEngine = new PromotionEngine();
-
+        public static int[] arraylist = { 1,2,3,4}; 
         static void Main(string[] args)
         {
             DisplayUnitMenu();
@@ -20,11 +20,18 @@ namespace Promotion
             string key = "Y";
             while (key == "Y" || key == "y")
             {
+                
                 item = SelectMenu();
-                quantity = SelectQuantity();
-                totalBill = totalBill + promotionEngine.CalculateBill(item, quantity);
-                lstSelectedItems.Add(new Unit { UnitName = item.ToString(), Quantity = quantity });
-
+                if (arraylist.Contains(item))
+                {
+                    quantity = SelectQuantity();
+                    totalBill += promotionEngine.CalculateBill(item, quantity);
+                    lstSelectedItems.Add(new Unit { UnitName = item.ToString(), Quantity = quantity });
+                }
+                else
+                {
+                    Console.Write("Please enter correct items number ");
+                }
                 Console.Write("Do you want to add more items (Y/N)? ");
                 key = Console.ReadLine();
             }
