@@ -10,22 +10,23 @@ namespace Promotion
     class Program
     {
         public static PromotionEngine promotionEngine = new PromotionEngine();
-        public static int[] arraylist = { 1,2,3,4}; 
+        public static string[] arraylist = { "a","b","c","d"}; 
         static void Main(string[] args)
         {
             DisplayUnitMenu();
             DisplayActivePromotion();
-            int item, quantity, totalBill = 0;
+            int quantity, totalBill = 0;
+            string item;
             List<Unit> lstSelectedItems = new List<Unit>();
             string key = "Y";
             while (key == "Y" || key == "y")
             {
-                item = SelectMenu();
-                if (arraylist.Contains(item))
+                item = SelectMenu().ToLower();
+                if (Array.IndexOf(arraylist, item) >= 0)
                 {
                     quantity = SelectQuantity();
                     lstSelectedItems.Add(new Unit { UnitName = item.ToString(), Quantity = quantity });
-                    if ((item != 3 || item != 4) && quantity != 1)
+                    if ((item != "c" || item != "d") && quantity != 1)
                     {
                         totalBill += promotionEngine.CalculateBill(item, quantity);
                     }
@@ -45,7 +46,7 @@ namespace Promotion
                 Console.WriteLine("You have selected below items");
                 for (int i = 0; i < lstSelectedItems.Count; i++)
                 {
-                    Console.WriteLine("Item Number {0} : {1}", lstSelectedItems[i].UnitName, lstSelectedItems[i].Quantity);
+                    Console.WriteLine("Unit Item {0} : {1}", lstSelectedItems[i].UnitName.ToUpper(), lstSelectedItems[i].Quantity);
                 }
                 Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 Console.WriteLine("Your total bill is {0}", totalBill);
@@ -69,21 +70,22 @@ namespace Promotion
             }
 
         }
-        static public int SelectMenu()
+        static public string SelectMenu()
         {
-            Console.Write("Select Unit :");
+            Console.Write("Select Unit (a,b,c,d) :");
             var result = Console.ReadLine();
-            return Convert.ToInt32(result);
+            return result;
         }
         static public void DisplayActivePromotion()
         {
-            Console.WriteLine("============== Active Promotions ============== ");
+            Console.WriteLine("===================== Active Promotions ================= ");
             var promotionList = promotionEngine.GetPromotions();
             for (int i = 0; i < promotionList.Count; i++)
             {
                 Console.WriteLine("{0}. {1}", i+1, promotionList[i].Description);
             }
-            Console.WriteLine("--------------------------------");
+            Console.WriteLine("Please Note only one promotion can be applied at one time");
+            Console.WriteLine("----------------------------*-----------------------------");
         }
     }
 }

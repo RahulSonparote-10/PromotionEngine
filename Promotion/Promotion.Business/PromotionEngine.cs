@@ -11,14 +11,14 @@ namespace Promotion.Business
     public class PromotionEngine : IPromotionEngine
     {
         public static bool isPromotionApplied;
-        public int CalculateBill(int item, int quntity)
+        public int CalculateBill(string item, int quntity)
         {
             var combos = 0;
             var singleItems = 0;
             var totalCost = 0;
             switch (item)
             {
-                case 1:
+                case "a":
                     combos = quntity / 3;
                     singleItems = quntity % 3;
                     if (combos != 0 && !isPromotionApplied)
@@ -31,7 +31,7 @@ namespace Promotion.Business
                         totalCost = quntity * Utility.unitACost;
                     }
                     break;
-                case 2:
+                case "b":
                     combos = quntity / 2;
                     singleItems = quntity % 2;
                     if (combos != 0 && !isPromotionApplied)
@@ -44,10 +44,10 @@ namespace Promotion.Business
                         totalCost = quntity * Utility.unitBCost;
                     }
                     break;
-                case 3:
+                case "c":
                     totalCost = quntity * Utility.unitCCost;
                     break;
-                case 4:
+                case "d":
                     totalCost = quntity * Utility.unitDCost;
                     break;
             }
@@ -57,7 +57,7 @@ namespace Promotion.Business
 
         public int CalculateBillForCandD(List<Unit> lstSelectedItems)
         {
-            if (lstSelectedItems.Where(a => a.UnitName == "3" && a.Quantity == 1).Any() && lstSelectedItems.Where(a => a.UnitName == "4" && a.Quantity == 1).Any())
+            if (lstSelectedItems.Where(a => a.UnitName == "c" && a.Quantity == 1).Any() && lstSelectedItems.Where(a => a.UnitName == "d" && a.Quantity == 1).Any())
                 return 30;
             else
                 return 0;
