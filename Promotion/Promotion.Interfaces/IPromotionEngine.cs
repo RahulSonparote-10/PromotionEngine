@@ -10,6 +10,6 @@ namespace Promotion.Interfaces
         List<Unit> GetUnits();
         List<Promotions> GetPromotions();
         int CalculateBill(int item, int quntity);
-
+        int CalculateBillForCandD(List<Unit> lstSelectedItems);
     }
 }

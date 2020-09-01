@@ -20,13 +20,15 @@ namespace Promotion
             string key = "Y";
             while (key == "Y" || key == "y")
             {
-                
                 item = SelectMenu();
                 if (arraylist.Contains(item))
                 {
                     quantity = SelectQuantity();
-                    totalBill += promotionEngine.CalculateBill(item, quantity);
                     lstSelectedItems.Add(new Unit { UnitName = item.ToString(), Quantity = quantity });
+                    if ((item != 3 || item != 4) && quantity != 1)
+                    {
+                        totalBill += promotionEngine.CalculateBill(item, quantity);
+                    }
                 }
                 else
                 {
@@ -35,9 +37,10 @@ namespace Promotion
                 Console.Write("Do you want to add more items (Y/N)? ");
                 key = Console.ReadLine();
             }
-           
+            totalBill += promotionEngine.CalculateBillForCandD(lstSelectedItems);
             if (totalBill > 0 && lstSelectedItems.Count > 0)
             {
+                
                 Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 Console.WriteLine("You have selected below items");
                 for (int i = 0; i < lstSelectedItems.Count; i++)

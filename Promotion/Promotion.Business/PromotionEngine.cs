@@ -3,6 +3,7 @@ using Promotion.Models;
 using Promotion.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Promotion.Business
@@ -52,6 +53,14 @@ namespace Promotion.Business
             }
 
             return totalCost;
+        }
+
+        public int CalculateBillForCandD(List<Unit> lstSelectedItems)
+        {
+            if (lstSelectedItems.Where(a => a.UnitName == "3" && a.Quantity == 1).Any() && lstSelectedItems.Where(a => a.UnitName == "4" && a.Quantity == 1).Any())
+                return 30;
+            else
+                return 0;
         }
 
         public List<Promotions> GetPromotions()
